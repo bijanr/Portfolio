@@ -1,0 +1,317 @@
+/* styling the body */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+html{
+    background-color: #5f45bb;
+    background-image: linear-gradient(to bottom right, #180cac, #d054e4);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    min-height: 100vh;
+    min-width: 300px;
+    overflow-x: hidden;
+    text-shadow: 0 3px 5px(0, 0, 0, 0.1);
+}
+
+a{
+    color: currentColor;
+    cursor: pointer;
+    text-decoration: none;
+}
+/* Shared stye */
+.wallpaper{
+    display: block;
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+.picture-shadow, .picture-image{
+    display: flex;
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    
+}
+
+.job, .button{
+    font-family: 'Montserrat', 'Quicksand', sans-serif;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+}
+.button, .social a{
+    transform-origin: center;
+    transition-duration: 100ms;
+}
+
+/* specific styling */
+.wallpaper{
+    background-image: url(../images/austria.jpg);
+    background-position: center;
+    background-size: cover;
+    opacity: 0.2;
+    position: fixed;
+}
+
+.content{
+    display: flex;
+    position: relative;
+    min-height: 100vh;
+}
+
+.side{
+    max-width: 20rem;
+    max-height: 20rem;
+}
+
+.about{
+    max-width: 26rem;
+}
+
+.picture{
+    padding-top: 100%;
+    position: relative;
+    width: 100%;
+}
+.picture-shadow{
+    border-radius: 290486px;
+    background-image: radial-gradient(#000 0%, rgba(0, 0, 0, 0) 70%);
+    position: absolute;
+    top: 20px;
+}
+.picture-image{
+    border-radius: 290486px;
+    position: absolute;
+}
+
+.name{
+    font-size: 2.25rem;
+    line-height: 1.125;
+    margin-bottom: 0.5rem;
+}
+
+.job{
+    color: #ffe479;
+    font-size: 0.75em;
+}
+.hr{
+    background-color: #ff470f;
+    border: none;
+    content: "";
+    height: 1px;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    transform-origin: center left;
+    width: 4rem;
+}
+.description{
+    font-size: 1.5rem;
+}
+.contact{
+    display: inline-block;
+    margin-top: 1.5rem;
+    vertical-align: top;
+}
+.button{
+    background-color: #fff;
+    border-radius: 290486px;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    color: #9013fe;
+    display: inline-block;
+    font-size: 0.875rem;
+    line-height: 1;
+    padding: 1.25em 2em;
+    text-shadow: none;
+    transition-property: box-shadow, transform;
+    user-select: none;
+    vertical-align: top;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+}
+
+.button:hover{
+    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.2);
+    transform: scale(1.02) translateY(-2.5px);
+}
+
+.button:active{
+    box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.2);
+    transform: scale(1.1 ) translateY(-1.5px);
+}
+
+.social{
+    display: flex;
+    margin-top: 1.5rem;
+    list-style: none;
+}
+
+.social li{
+    height: 2rem;
+    margin-right: 0.5rem;
+    text-align: center;
+    width: 2rem;
+}
+
+.social a{
+    align-items: center;
+    display: flex;
+    font-size: 1.5rem;
+    height: 2rem;
+    justify-content: center;
+    opacity: 0.5;
+    transition-property: opacity, transform;
+    width: 2rem;
+    will-change: opacity, transform;
+}
+
+.social a:hover{
+    opacity: 1;
+    transform: scale(1.25);
+}
+
+.social a:active{
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* responsiveness */
+@media screen and (max-width: 799px) {
+    .content{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 5rem 3rem;
+    }
+    .side{
+        margin-bottom: 3rem;
+        width: 100%;
+    }
+    
+}
+
+.wallpaper,
+.picture-shadow,
+.picture-image,
+.name,
+.job,
+.hr,
+.description,
+.contact,
+.social li {
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0, 0.5, 0, 1);
+  animation-fill-mode: both;
+}
+
+.wallpaper,
+.picture-shadow,
+.picture-image {
+  opacity: 0;
+}
+
+.picture-shadow,
+.picture-image {
+  animation-duration: 750ms;
+  animation-timing-function: cubic-bezier(0, 0.5, 0.25, 1.25);
+}
+
+.wallpaper {
+  animation-timing-function: ease-out;
+}
+
+.wallpaper.is-loaded {
+  animation-delay: 1s;
+  animation-name: zoomOut;
+}
+
+.picture.is-loaded,
+.picture-shadow {
+  animation-name: picShadow;
+}
+
+.picture.is-loaded,
+.picture-image {
+  animation-name: picImage;
+}
+
+.name {
+  animation-name: slideDown;
+}
+
+.job {
+  animation-name: slideUp;
+}
+
+.hr {
+  animation: fillUp;
+}
+
+.description {
+  animation-name: slideUp;
+}
+
+.contact {
+  animation-name: bounceIn;
+}
+
+.social li {
+  animation-duration: 500ms;
+  animation-name: slideUp;
+  animation-timing-function: cubic-bezier(0.5, 0, 0.5, 1.5);
+}
+
+.name {
+  animation-delay: 100ms;
+}
+
+.job {
+  animation-delay: 200ms;
+}
+
+.hr {
+  animation-delay: 300ms;
+}
+
+.description {
+  animation-delay: 400ms;
+}
+
+.picture-image {
+  animation-delay: 500ms;
+}
+
+.picture-shadow {
+  animation-delay: 500ms;
+}
+
+.contact {
+  animation-delay: 600ms;
+}
+
+.social li:nth-child(1) {
+  animation-delay: 800ms;
+}
+
+.social li:nth-child(2) {
+  animation-delay: 900ms;
+}
+
+.social li:nth-child(3) {
+  animation-delay: 1000ms;
+}
+
+.social li:nth-child(4) {
+  animation-delay: 1100ms;
+}
+
+.social li:nth-child(5) {
+  animation-delay: 1200ms;
+}
+
+
